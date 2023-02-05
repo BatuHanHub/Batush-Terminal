@@ -5,7 +5,7 @@ Batush, BatuHanHub tarafından Python dili kullanılarak, eğlence ve Python'da 
 
 # BATUSH KOMUTLARI
 
-UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ.
+# UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ. (Atatürk hariç :blush:)
 
 ## DOSYA İŞLEM KOMUTLARI
 oluştur : dosya oluşturursunuz </br>
