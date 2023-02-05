@@ -46,7 +46,7 @@ Atatürk : deneyin :)
 bilgi : Batush hakkında bilgi verir""")
 
 def bilgi():
-    print("""Batush(Batuhan'ın Bash'i) Beta 2.0\n
+    print("""Batush(Batuhan'ın Bash'i) Beta 1.0\n
 BatuHanHub tarafından Python diliyle yazılmıştır. Sadece eğlenmek ve Python bilgimi sınamak için yazılmıştır.
 telif hakkı (c) BatuHanHub
 
