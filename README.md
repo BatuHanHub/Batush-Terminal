@@ -20,5 +20,5 @@ yardım : terminal kodlarını ve işlevlerini gösterir</br>
 
 tarih : zaman ve tarihi gösterir</br>
 
-Atatürk : deneyin :)</br>
+Atatürk : deneyin :blush:</br>
 bilgi : Batush hakkında bilgi verir</br>
