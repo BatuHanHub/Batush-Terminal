@@ -5,20 +5,22 @@ Batush, BatuHanHub tarafından Python dili kullanılarak, eğlence ve Python'da 
 
 # BATUSH KOMUTLARI
 
-UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ.(Atatürk komutu hariç)</br>
+UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ.
 
-### DOSYA İŞLEMLERİ
+## DOSYA İŞLEMLERİ
 oluştur : dosya oluşturursunuz </br>
-değiş : konumunuzu değiştirir (masaüstüne gitmek için 'Masaüstü' yazın) </br>
+değiş : konumunuzu değiştirir (masaüstüne gitmek için 'Masaüstü' yazın)  </br>
 nerdeyim : şu anki konumunuzu gösterir </br>
 liste : konumunuzdaki dosyaları gösterir </br>
+sil : dosya siler</br>
 
-### TERMİNAL KOMUTLARI
-sil : terminali temizler</br>
+## TERMİNAL KOMUTLARI
+temizle : terminali temizler</br>
 çık : terminalden çıkarsınız</br>
 yardım : terminal kodlarını ve işlevlerini gösterir</br>
+bukelemun : yazı rengi değiştirir</br>
 
 tarih : zaman ve tarihi gösterir</br>
 
-Atatürk : deneyin :blush:</br>
+Atatürk : deneyin :)</br>
 bilgi : Batush hakkında bilgi verir</br>
