@@ -7,7 +7,7 @@ Batush, BatuHanHub tarafından Python dili kullanılarak, eğlence ve Python'da 
 
 UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ.
 
-## DOSYA İŞLEMLERİ
+## DOSYA KOMUTLARI
 oluştur : dosya oluşturursunuz </br>
 değiş : konumunuzu değiştirir (masaüstüne gitmek için 'Masaüstü' yazın)  </br>
 nerdeyim : şu anki konumunuzu gösterir </br>
