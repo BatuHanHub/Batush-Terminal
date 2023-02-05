@@ -8,13 +8,20 @@ bilgi()
 while True: 
     kullanici = str(input(">>>"))
     
-    if kullanici == "sil":
-        sil()
+    if kullanici == "temizle":
+        temizle()
         kullanici = ""
     
     elif kullanici == "çık":
+        print(Style.RESET_ALL)
         cik()
         break
+    
+    elif kullanici == "bukelemun":
+        bukelemun()
+    
+    elif kullanici == "sil":
+        sil()
     
     elif kullanici == "liste":
         liste()
