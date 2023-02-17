@@ -1,13 +1,29 @@
-from config import *
+from kodlar import *
 
-kullaniciAdi = os.environ["USERPROFILE"]
-ad = kullaniciAdi[9:]
-os.chdir(f"{kullaniciAdi}\Onedrive\Masaüstü\\")
+if isletimSistemi == 'nt':
+    kullaniciAdi = os.environ["USERPROFILE"]
+    ad = kullaniciAdi[9:]
+    os.chdir(f"{kullaniciAdi}\Onedrive")
+    yol = os.listdir()
+    if 'Desktop' in yol:
+        os.chdir('Desktop')
+    elif 'Masaüstü' in yol:
+        os.chdir('Masaüstü')
+
+else:
+    kullaniciAdi = os.getenv('HOME')
+    ad = kullaniciAdi[6:]
+    os.chdir(kullaniciAdi)
+    yol = os.listdir()
+    if 'Desktop' in yol:
+        os.chdir('Desktop')
+    elif 'Masaüstü' in yol:
+        os.chdir('Masaüstü')
 
 bilgi()
 
 while True: 
-    kullanici = str(input(f"{ad}@Windows-NT:~$"))
+    kullanici = str(input(f"{ad}@{isletimSistemiAdi}-{isletimSistemi.upper()}:~$"))
     
     if kullanici == "temizle":
         temizle()
@@ -53,7 +69,7 @@ while True:
         git()
     
     elif kullanici == "çalışpy":
-        calistirpython()
+        calistirPython()
 
     elif kullanici == "python":
         python()
