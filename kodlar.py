@@ -1,23 +1,40 @@
 from colorama import *
 import requests
+import platform
 import datetime
 import time
 import os
+
+isletimSistemi = os.name
+
+if isletimSistemi == 'nt':
+    isletimSistemiAdi = 'Windows'
+else:
+    isletimSistemiAdi = platform.system()
 
 soru = ""
 secim = ""
 
 def calistir():
     soru = str(input("Başlatacağınız programın adını giriniz:[örn: Batush.exe]\n>"))
-    os.system(f"start {soru}")
+    if isletimSistemi == 'nt':
+        os.system(f"start {soru}")
+    else:
+        os.system(soru)
 
 def kapat():
     soru = str(input("Kapatacağınız programın adını giriniz:[örn: Batush.exe]\n>"))
-    os.system(f'taskkill /f /im "{soru}"')
+    if isletimSistemi == 'nt':
+        os.system(f'taskkill /f /im "{soru}"')
+    else:
+        os.system(f'killall {soru}')
 
 def temizle():
-    os.system("cls")
-        
+    if isletimSistemi == 'nt':
+        os.system("cls")
+    else:
+        os.system("clear")
+    
 def sil():
     soru = str(input("Hangi dosyası silmek istersiniz?\n>>>"))
     secim = str(input(f"{soru} dosyasını silmek istediğinizden emin misiniz? e/h >"))
@@ -54,17 +71,23 @@ def git():
         os.chdir(soru)
 
     elif soru == "Masaüstü":
-        kullaniciAdi = os.environ["USERPROFILE"]
-        os.chdir(f"{kullaniciAdi}\Onedrive\Masaüstü\\")
-    
+        if isletimSistemi == 'nt':
+            kullaniciAdi = os.environ["USERPROFILE"]
+            os.chdir(f"{kullaniciAdi}\Onedrive\Masaüstü\\")
+        else:
+            yol = os.listdir()
+            if 'Desktop' in yol:
+                os.chdir('Desktop')
+            elif 'Masaüstü' in yol:
+                os.chdir('Masaüstü')
+        
     else:
         print("HATA2: Öyle bir klasör yok")
 
 def yardim():
-    temizle()
     print("""BATUSH(Batuhan'ın Bash'i) KODLARI
 
-UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ.
+UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ. (Atatürk hariç)
 
 # DOSYA İŞLEMLERİ
 olşdosya : dosya oluşturursunuz 
@@ -97,7 +120,7 @@ NOT: komutları kullanırken örnek olarak 'olşdosya dosyaadi.txt' yerine 'olş
 diye soru soracaktır orada ad ve dosya uzantısı giriniz.""")
 
 def bilgi():
-    print("""Batush(Batuhan'ın Bash'i) Beta 3.0\n
+    print("""Batush(Batuhan'ın Bash'i) Beta 4.0\n
 BatuHanHub tarafından Python diliyle yazılmıştır. Sadece eğlenmek ve Python bilgimi sınamak için yazılmıştır.
 GPL 3.0 lisansı ile dağıtılmaktadır. Telif hakkı (c) BatuHanHub
 
@@ -106,8 +129,11 @@ Bloğum: https://tatliyazilimci.blogspot.com/ \n""")
 
 
 def python():
-    os.system("python")
-
+    if isletimSistemi == 'nt':
+        os.system("python")
+    else:
+        os.system('python3')
+        
 def tarih():
     zaman = datetime.datetime.now()
     print(f"{zaman.strftime('%x-%X')}")
@@ -177,7 +203,7 @@ Eski haline (beyaz) için 5 yazınız.\n""")
         print("İşlem iptal edildi.")
         pass
 
-def calistirpython():
+def calistirPython():
     soru = str(input("Çalıştıracağınız Python dosyasının adını giriniz.[örn: dosyaadi.py]\n>"))
     os.system(f"python {soru}")
 
