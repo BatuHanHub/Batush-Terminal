@@ -1,10 +1,6 @@
 # Değişim günlüğü :rocket:
-- Python desteği geldi. Artık Python'dan kod yazabirlir, Python dosyalarınızı çalıştırabilirsiniz!
-- Program başlatma ve bitirme komutu geldi.
-- Komutlar düzeltildi.
-- Bukelemuna yenilik getirildi.
-- ">>>" bundan "isim@işletimsistemi" buna çevirildi.
-- Batush'un lisansını görmek için `lisans` komutunu kullanabilirsiniz.
+- 🐧​Linux, 🍎MacOS ve ​😈​BSD desteği getirildi.
+- Gözden kaçırılan hatalar düzeltildi.
 
 # Batush Kılavuzu
 ![](https://miro.medium.com/max/1400/1*xjraSVbFOl1b5346bPGoIw.png)
@@ -13,7 +9,7 @@ Batush, BatuHanHub tarafından Python dili kullanılarak, eğlence ve Python'da 
 
 # BATUSH KOMUTLARI
 
-UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ.
+## UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ. (Atatürk hariç)
 
 # DOSYA İŞLEMLERİ
 olşdosya : dosya oluşturursunuz </br>
