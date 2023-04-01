@@ -1,6 +1,13 @@
 # Değişim günlüğü :rocket:
-- 🐧​Linux, 🍎MacOS ve ​😈​BSD desteği getirildi.
-- Gözden kaçırılan hatalar düzeltildi.
+- Yeni komutlar eklendi
+- Komutlar düzeltildi
+- Artık tek satırda işlerinizi halledebilirsiniz. Örneğin:
+### Eskiden
+BatuHanHub@Windows-NT:\Masaüstü~$ olşdosya </br>
+Dosya adınız ne olsun ve ne formatında (.txt vs.) [dosyaadı.format]? </br>
+-Merhaba.txt </br>
+### Yenisinde
+BatuHanHub@Windows-NT:\Masaüstü~$ olşdsy merhaba.txt
 
 # Batush Kılavuzu
 ![](https://miro.medium.com/max/1400/1*xjraSVbFOl1b5346bPGoIw.png)
@@ -9,33 +16,32 @@ Batush, BatuHanHub tarafından Python dili kullanılarak, eğlence ve Python'da 
 
 # BATUSH KOMUTLARI
 
-## UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ. (Atatürk hariç)
+# DOSYA VE KLASÖR İŞLEMLERİ
 
-# DOSYA İŞLEMLERİ
-olşdosya : dosya oluşturursunuz </br>
-olşklasör : klasör oluşturursunuz </br>
-git : konumunuzu değiştirir (masaüstüne gitmek için 'Masaüstü' yazın) </br>
-nerdeyim : şu anki konumunuzu gösterir </br>
-liste : konumunuzdaki dosyaları gösterir </br>
-sil : dosya siler</br>
+olşdsy [dosya_adi.uzantisi] : dosya oluşturursunuz </br>
+sil [dosya_adi.uzantisi] :  dosya siler </br>
+oku [dosya_adi.uzantisi] : dosyayı okur </br></br>
 
-# TERMİNAL KOMUTLARI
-temizle : terminali temizler</br>
-çık : terminalden çıkarsınız</br>
-yardım : terminal kodlarını ve işlevlerini gösterir</br>
-bukelemun : yazı rengi değiştirir</br>
+olşkls [klasor_adi]: klasör oluşturursunuz </br>
+silkls [klasor_adi]: klasör siler </br></br>
 
-çalıştır : program çalıştırır</br>
-kapat : program kapatır</br>
+git [yol_adi] : konumunuzu değiştirir (geri gitmek için `git --` yazmalısınız) </br>
+nerdeyim      : şu anki konumunuzu gösterir </br>
+liste         : konumunuzdaki dosyaları gösterir </br>
 
-python : Python'u açar</br>
-çalışpy : Python dosyasını çalıştırır</br>
-tarih : zaman ve tarihi gösterir</br>
+# SİSTEM KOMUTLARI
+çık       : terminalden çıkarsınız </br>
+temizle   : terminali temizler </br>
+çalıştır [program_adi]: program çalıştırır </br>
+kapat [dosya_adi.uzantisi] : program kapatır </br>
+bilgi     : Batush hakkında bilgi verir </br>
+yardım    : terminal kodlarını ve işlevlerini gösterir </br>
 
-1984 : George Orwell'ın ütopyası</br>
-6 Şubat : :(</br>
-Atatürk : deneyin :)</br>
-bilgi : Batush hakkında bilgi verir</br>
-lisans : lisansı hakkında bilgi verir</br>
+# PYTHON
+python    : Python'u açar </br>
+pyçalış [dosya_adi.py] : Python dosyasını çalıştırır </br>
 
-## NOT: komutları kullanırken örnek olarak 'olşdosya dosyaadi.txt' yerine 'olşdosya' yazın. Size 'Dosya adını ne yapalım?' diye soru soracaktır orada ad ve dosya uzantısı giriniz.
+# EK KOMUTLAR
+Atatürk   : Ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız </br>
+tarih     : zaman ve tarihi gösterir </br>
+bukelemun : yazı rengi değiştirir </br>
