@@ -1,5 +1,7 @@
 # Değişim günlüğü :rocket:
 - Yeni komutlar eklendi
+- İşlev ve komutlar iki Python dosyası olarak ayrıldı. Hem komutlar düzene girmiş oldu hemde kolaylık sağlanmış oldu. İşlev dosyasında komutların işlevleri 
+bulunurken komutlarda ise komutlar (Adı ve girdi komut[input komut (kullanıcının girdiği komut)]) bulunmaktadır. 
 - Komutlar düzeltildi
 - Artık tek satırda işlerinizi halledebilirsiniz. Örneğin:
 ### Eskiden
