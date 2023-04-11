@@ -26,11 +26,12 @@ calistir = komutlar('Çalıştır','çalıştır')
 kapat = komutlar('Kapat','kapat')
 bilgilendir = komutlar('Bilgilendir','bilgi')
 yardim = komutlar('Yardım','yardım')
+degis = komutlar('Değiş','!>')
 
 # Ek komutlar
 Ataturk = komutlar('Mustafa Kemal Atatürk','Atatürk')
 tarih = komutlar('Tarih','tarih')
-bukelemun = komutlar('Bukelemun','bklmn')
+kalp = komutlar('<3','<kalp3')
 
 # Python
 python = komutlar('Python Başlatıcısı','python')
