@@ -1,5 +1,5 @@
 # Değişim günlüğü :rocket:
-- Yeni gönderme
+- Yeni gönderme (easter egg)
 - Artık bir geri klasöre gitmek için `git <-` komutunu kullanabilirsiniz.
 - Bukelemun kaldırıldı.
 - Artık Batush kurulabilir(setup) ve taşınabilir olarak 2 ayrı sürüme ayrıldı. Setup dosyası Batush'u bilgisayarınıza kurar. Taşınabilir sürümde ise kurulum gerektirmez.
