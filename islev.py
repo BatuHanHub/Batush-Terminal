@@ -1,5 +1,4 @@
 # Küütüphaneler
-from colorama import * 
 import datetime, time # Zamanla alakalı
 import os, sys, platform # Sistemle alakalı
 
@@ -17,11 +16,19 @@ def islev_dosya_sil(dsySil):
     os.remove(dsySil)
 
 def islev_dosyayi_oku(dsyAdi):
-    with open(f'{dsyAdi}','r',encoding='utf8') as dosya:
-        print('===Okudum===')
-        for satir in dosya.readlines():
-            print(satir)
-        print('============\n')
+    try:
+        with open(f'{dsyAdi}','r',encoding='utf8') as dosya:
+            print('===Okudum===')
+            for satir in dosya.readlines():
+                print(satir)
+            print('============\n')
+            
+    except UnicodeDecodeError:
+        print('Hata <03> : Desteklenmeyen dosya biçimi.')
+    except FileNotFoundError:
+        print('Hata <04> : Böyle bir dosya yok.')
+    except PermissionError:
+        print('Hata <05> : Klasörü okuyamazsınız.')
         
 # Klasör işleri    
 def islev_olustur_klasor(klsAdi):
@@ -35,7 +42,7 @@ def islev_git(yol):
     if yol in os.listdir():
         os.chdir(yol)
         
-    elif yol == '--':
+    elif yol == '<-':
         os.chdir('..')
              
     else:
@@ -51,7 +58,6 @@ def islev_liste():
 ### SİSTEM KOMUTLARI ###
 
 def islev_cik():
-    print(Style.RESET_ALL)
     sys.exit()
     
 def islev_temizle():
@@ -73,9 +79,9 @@ def islev_kapat(program):
         os.system(f'killall {program}')    
 
 def islev_bilgi():
-    print("""Batush(Batuhan'ın Bash'i) Beta 5.0\n
+    print("""Batush(Batuhan'ın Bash'i) Beta 6.0\n
 BatuHanHub tarafından Python diliyle yazılmıştır. Sadece eğlenmek ve Python bilgimi sınamak için yazılmıştır.
-GPL 3.0 lisansı ile dağıtılmaktadır. Telif hakkı (c) BatuHanHub
+Bash'in Türkçe hali ve Bash benzeri :D.
 
 Yardım istiyorsanız `yardım` komutunu kullanabilirsiniz :)
 
@@ -107,6 +113,8 @@ temizle   : terminali temizler
 kapat [dosya_adi.uzantisi] : program kapatır
 bilgi     : Batush hakkında bilgi verir
 yardım    : terminal kodlarını ve işlevlerini gösterir
+!> [komut]: Batush'da olmayan veya komutları kullanmayı veya
+Bash ya da CMD komutlarınızı kullanmaya yarar.
 
 # PYTHON
 python    : Python'u açar
@@ -115,9 +123,13 @@ pyçalış [dosya_adi.py] : Python dosyasını çalıştırır
 # EK KOMUTLAR
 Atatürk   : Ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız    
 tarih     : zaman ve tarihi gösterir
-bukelemun : yazı rengi değiştirir
-
-""")
+bukelemun : yazı rengi değiştirir""")
+    
+def islev_degis(komut):
+    if isletimSistemiTuru == 'nt':
+        os.system(komut)
+    else:
+        os.system(komut)
     
 ### EK KOMUTLAR ###
 
@@ -128,37 +140,31 @@ def islev_ataturk():
 def islev_tarih():
     zaman = datetime.datetime.now()
     print(f"{zaman.strftime('%x-%X')}")
-    
-def islev_bukelemun():
-    print("""Bukelemun  sürüm: 1.2 beta
-Aşağıdaki renklerden birinin sayısını giriniz. \n
 
-Kırmızı için 1
-Yeşil için 2
-Mavi için 3
-Sarı için 4 
-Eski haline (beyaz) için 5 yazınız.\n""")
-    
-    secim = str(input(">>>"))
-    
-    if secim == "1":
-        print(Fore.RED + "Seçtiğiniz renk uygulandı.")
-        
-    elif secim == "2":
-        print(Fore.GREEN + "Seçtiğiniz renk uygulandı.")
-        
-    elif secim == "3":
-        print(Fore.BLUE + "Seçtiğiniz renk uygulandı.")
-        
-    elif secim == "4":
-        print(Fore.YELLOW + "Seçtiğiniz renk uygulandı.")
-        
-    elif secim == "5":
-        print(Style.RESET_ALL + "Seçtiğiniz renk uygulandı")
-        
-    else:
-        print("İşlem iptal edildi.")
-        pass
+def islev_kalp():
+    islev_temizle()
+    print('''
+              ******       ******
+            **********   **********
+          ************* *************
+         *****************************
+         *****************************
+         *****************************
+          ***************************
+            ***********************
+              *******************
+                ***************
+                  ***********
+                    *******
+                      ***
+                       *
+
+Benim için kıymetli hocalarım/ailem/abilerim/ablalarım(ablam yok :D)/arkadaşlarım, can dostlarım veya yoldaşlarım;
+
+Ailem / Hocalarım / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 
+Komиcсар Рабочих Мира / kullanici3 / 5Dollar / 0axper0 / Hey Efe 
+Kortitanium / İMiracJK / Owmen / Kaan evr / Tufan / Zeynep 
+Damla / Dilek / Ceylin / Yağız / Murat / rushxvpn9 / rabia ve Zeynep\n''')
     
 ### PYTHON ### 
 
