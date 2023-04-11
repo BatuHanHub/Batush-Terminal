@@ -1,15 +1,11 @@
 # Değişim günlüğü :rocket:
-- Yeni komutlar eklendi
-- İşlev ve komutlar iki Python dosyası olarak ayrıldı. Hem komutlar düzene girmiş oldu hemde kolaylık sağlanmış oldu. İşlev dosyasında komutların işlevleri 
-bulunurken komutlarda ise komutlar (Adı ve girdi komut[input komut (kullanıcının girdiği komut)]) bulunmaktadır. 
-- Komutlar düzeltildi
-- Artık tek satırda işlerinizi halledebilirsiniz. Örneğin:
-### Eskiden
-BatuHanHub@Windows-NT:\Masaüstü~$ olşdosya </br>
-Dosya adınız ne olsun ve ne formatında (.txt vs.) [dosyaadı.format]? </br>
--Merhaba.txt </br>
-### Yenisinde
-BatuHanHub@Windows-NT:\Masaüstü~$ olşdsy merhaba.txt
+- Yeni gönderme
+- Artık bir geri klasöre gitmek için `git <-` komutunu kullanabilirsiniz.
+- Bukelemun kaldırıldı.
+- Artık Batush kurulabilir(setup) ve taşınabilir olarak 2 ayrı sürüme ayrıldı. Setup dosyası Batush'u bilgisayarınıza kurar. Taşınabilir sürümde ise kurulum gerektirmez.
+- Hatalar giderildi.
+- Artık Batush'da olmayan komutlarınızı çalıştırabileceksiniz. Örneğin : CMD komutu kullanarak ekranımızı temizlemek istersek `!> cls`, 
+Bash komutu kullanarak ekranımızı temizlemek istersek `!> clear` kullanabilirsiniz.  
 
 # Batush Kılavuzu
 ![](https://miro.medium.com/max/1400/1*xjraSVbFOl1b5346bPGoIw.png)
@@ -27,7 +23,7 @@ oku [dosya_adi.uzantisi] : dosyayı okur </br></br>
 olşkls [klasor_adi]: klasör oluşturursunuz </br>
 silkls [klasor_adi]: klasör siler </br></br>
 
-git [yol_adi] : konumunuzu değiştirir (geri gitmek için `git --` yazmalısınız) </br>
+git [yol_adi] : konumunuzu değiştirir (Bir geri klasöre gitmek için `git <-` yazmalısınız) </br>
 nerdeyim      : şu anki konumunuzu gösterir </br>
 liste         : konumunuzdaki dosyaları gösterir </br>
 
@@ -38,6 +34,8 @@ temizle   : terminali temizler </br>
 kapat [dosya_adi.uzantisi] : program kapatır </br>
 bilgi     : Batush hakkında bilgi verir </br>
 yardım    : terminal kodlarını ve işlevlerini gösterir </br>
+!> [komut]: Batush'da olmayan veya komutları kullanmayı veya
+Bash ya da CMD komutlarınızı kullanmaya yarar.</br>
 
 # PYTHON
 python    : Python'u açar </br>
@@ -46,4 +44,3 @@ pyçalış [dosya_adi.py] : Python dosyasını çalıştırır </br>
 # EK KOMUTLAR
 Atatürk   : Ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız </br>
 tarih     : zaman ve tarihi gösterir </br>
-bukelemun : yazı rengi değiştirir </br>
