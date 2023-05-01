@@ -17,17 +17,17 @@ def islev_dosya_sil(dsySil):
 
 def islev_dosyayi_oku(dsyAdi):
     try:
-        with open(f'{dsyAdi}','r',encoding='utf8') as dosya:
-            print('===Okudum===')
+        with open(f'{dsyAdi[4:]}','r',encoding='utf8') as dosya:
+            print('\"')
             for satir in dosya.readlines():
                 print(satir)
-            print('============\n')
+            print('\"\n')
             
-    except UnicodeDecodeError:
+    except UnicodeDecodeError: # Eğer desteklenmeyen bir dosya biçimiyse
         print('Hata <03> : Desteklenmeyen dosya biçimi.')
-    except FileNotFoundError:
+    except FileNotFoundError: # Eğer böyle bir dosya yoksa
         print('Hata <04> : Böyle bir dosya yok.')
-    except PermissionError:
+    except PermissionError: # Eğer kullanıcı klasör okumaya çalışırsa
         print('Hata <05> : Klasörü okuyamazsınız.')
         
 # Klasör işleri    
@@ -79,7 +79,7 @@ def islev_kapat(program):
         os.system(f'killall {program}')    
 
 def islev_bilgi():
-    print("""Batush(Batuhan'ın Bash'i) Beta 6.0\n
+    print("""Batush(Batuhan'ın Bash'i) Beta 6.1\n
 BatuHanHub tarafından Python diliyle yazılmıştır. Sadece eğlenmek ve Python bilgimi sınamak için yazılmıştır.
 Bash'in Türkçe hali ve Bash benzeri :D.
 
@@ -122,8 +122,7 @@ pyçalış [dosya_adi.py] : Python dosyasını çalıştırır
 
 # EK KOMUTLAR
 Atatürk   : Ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız    
-tarih     : zaman ve tarihi gösterir
-bukelemun : yazı rengi değiştirir""")
+tarih     : zaman ve tarihi gösterir""")
     
 def islev_degis(komut):
     if isletimSistemiTuru == 'nt':
@@ -161,10 +160,10 @@ def islev_kalp():
 
 Benim için kıymetli hocalarım/ailem/abilerim/ablalarım(ablam yok :D)/arkadaşlarım, can dostlarım veya yoldaşlarım;
 
-Ailem / Hocalarım / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 
+Sensei Tankado / Ailem / Hocalarım / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 
 Komиcсар Рабочих Мира / kullanici3 / 5Dollar / 0axper0 / Hey Efe 
-Kortitanium / İMiracJK / Owmen / Kaan evr / Tufan / Zeynep 
-Damla / Dilek / Ceylin / Yağız / Murat / rushxvpn9 / rabia ve Zeynep\n''')
+Velberah / İMiracJK / Owmen / Kaan Başgan / Tufan / Zeynep / Selçuk  
+Damla / Dilek / Ceylin / Yağız / Murat / Rushxvpn9 / Rabia ve Zeynep\n''')
     
 ### PYTHON ### 
 
