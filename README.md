@@ -1,11 +1,7 @@
 # Değişim günlüğü :rocket:
-- Yeni gönderme (easter egg)
-- Artık bir geri klasöre gitmek için `git <-` komutunu kullanabilirsiniz.
-- Bukelemun kaldırıldı.
-- Artık Batush kurulabilir(setup) ve taşınabilir olarak 2 ayrı sürüme ayrıldı. Setup dosyası Batush'u bilgisayarınıza kurar. Taşınabilir sürümde ise kurulum gerektirmez.
-- Hatalar giderildi.
-- Artık Batush'da olmayan komutlarınızı çalıştırabileceksiniz. Örneğin : CMD komutu kullanarak ekranımızı temizlemek istersek `!> cls`, 
-Bash komutu kullanarak ekranımızı temizlemek istersek `!> clear` kullanabilirsiniz.  
+- Boş komut girildiğinde Batush kendini kapatıyordu artık kendini kapatmayacak (Hata)
+- Artık Batush açıldığında yerin dosyasına gidecek örneğin İndirilenlerde Batush'u açarsanız dosya konumu İndirilenler olacak.
+- `x@Windows-NT:{masaustunden sonraki dosya}~$` yerine artık `x@Windows-NT>C:\Users\x\OneDrive\Masaüstü~$`
 
 # Batush Kılavuzu
 ![](https://miro.medium.com/max/1400/1*xjraSVbFOl1b5346bPGoIw.png)
