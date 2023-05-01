@@ -1,5 +1,3 @@
-from colorama import *
-
 class komutlar:
     def __init__(self, komutAdi, inputKomut):
         self.komutAdi = komutAdi
