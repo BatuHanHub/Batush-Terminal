@@ -1,42 +1,71 @@
 # Değişim günlüğü :rocket:
-- Boş komut girildiğinde Batush kendini kapatıyordu artık kendini kapatmayacak (Hata)
-- Artık Batush açıldığında yerin dosyasına gidecek örneğin İndirilenlerde Batush'u açarsanız dosya konumu İndirilenler olacak.
-- `x@Windows-NT:{masaustunden sonraki dosya}~$` yerine artık `x@Windows-NT>C:\Users\x\OneDrive\Masaüstü~$`
+- Hatalar giderildi
+- Renkli terminal
+- Yeni komutlar
 
 # Batush Kılavuzu
 ![](https://miro.medium.com/max/1400/1*xjraSVbFOl1b5346bPGoIw.png)
 # Batush(Batuhan'ın Bash'i) nedir?
-Batush, BatuHanHub tarafından Python dili kullanılarak, eğlence ve Python'da bilgilerini sınamak için yapılmış "Türkçe Bash"dir. 
+Batush, Türkçe komutları olan Bash benzeri konsol/terminal/uçbirim.
 
 # BATUSH KOMUTLARI
 
 # DOSYA VE KLASÖR İŞLEMLERİ
 
 olşdsy [dosya_adi.uzantisi] : dosya oluşturursunuz </br>
+
 sil [dosya_adi.uzantisi] :  dosya siler </br>
-oku [dosya_adi.uzantisi] : dosyayı okur </br></br>
 
-olşkls [klasor_adi]: klasör oluşturursunuz </br>
-silkls [klasor_adi]: klasör siler </br></br>
+oku [dosya_adi.uzantisi] : dosyayı okur</br>
 
-git [yol_adi] : konumunuzu değiştirir (Bir geri klasöre gitmek için `git <-` yazmalısınız) </br>
-nerdeyim      : şu anki konumunuzu gösterir </br>
-liste         : konumunuzdaki dosyaları gösterir </br>
+olşkls [klasor_adi] : klasör oluşturursunuz</br> 
+
+silkls [klasor_adi] : klasör siler </br>
+
+git [yol_adi] : konumunuzu değiştirir (geri gitmek için `git <-` yazmalısınız) </br>
+
+nerdeyim : şu anki konumunuzu gösterir </br>
+
+ls : konumunuzdaki dosyaları gösterir </br>
+
+kpy [dosya_adi.turu/klasör_adi],[yeniAd] : konumunuzdaki dosyayı/klasörü hedef dizine kopyalar</br>
+
+taşı [dosya_adi.turu/klasör_adi],[yeniAd] : konumunuzdaki dosyayı/klasörü hedef dizine taşır</br>
+
+isim [dosya_adi.turu/klasör_adi],[yeniAd] : konumunuzdaki dosya/klasörün adını değiştirir
 
 # SİSTEM KOMUTLARI
-çık       : terminalden çıkarsınız </br>
-temizle   : terminali temizler </br>
-çalıştır [program_adi]: program çalıştırır </br>
-kapat [dosya_adi.uzantisi] : program kapatır </br>
-bilgi     : Batush hakkında bilgi verir </br>
-yardım    : terminal kodlarını ve işlevlerini gösterir </br>
-!> [komut]: Batush'da olmayan veya komutları kullanmayı veya
+çık : terminalden çıkarsınız</br>
+
+temizle : terminali temizler</br>
+
+başlat [program_adi] : program çalıştırır</br>
+
+kapat [dosya_adi.uzantisi] : program kapatır</br>
+
+bilgi : Batush hakkında bilgi verir</br>
+
+yardım : terminal kodlarını ve işlevlerini gösterir</br>
+
+!> [komut] : Batush'da olmayan veya komutları kullanmayı veya</br>
 Bash ya da CMD komutlarınızı kullanmaya yarar.</br>
 
 # PYTHON
-python    : Python'u açar </br>
-pyçalış [dosya_adi.py] : Python dosyasını çalıştırır </br>
+python : Python'u açar</br>
+
+pyçalış [dosya_adi.py] : Python dosyasını çalıştırır</br>
 
 # EK KOMUTLAR
-Atatürk   : Ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız </br>
-tarih     : zaman ve tarihi gösterir </br>
+Atatürk : ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız</br>
+
+tarih : zaman ve tarihi gösterir</br>
+
+bune [komut_adi] : komut hakkında bilgi verir</br></br>
+
+# Desteklenen platformlar
+## Windows:
+![Windows](resim/Windows.png)
+## Linux:
+![Linux](resim/Linux.png)
+## MacOS
+## BSD
