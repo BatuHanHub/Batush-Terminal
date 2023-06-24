@@ -1,6 +1,7 @@
-# Küütüphaneler
+# Kütüphaneler
 import datetime, time # Zamanla alakalı
-import os, sys, platform # Sistemle alakalı
+import os, sys, platform, shutil # Sistemle alakalı
+from colorama import Fore, init, Style
 
 isletimSistemiTuru = os.name # kullanıcının kullandığı işletim sisteminin çekirdeği
 isletimSistemiAdi = platform.system() # kullanıcının kullandığı işletim sisteminin adı 
@@ -9,44 +10,69 @@ isletimSistemiAdi = platform.system() # kullanıcının kullandığı işletim s
 
 # Dosya işleri
 def islev_olustur_dosya(dsyAdi):
-    with open(f'{dsyAdi}','w',encoding='utf8') as dosya:
-            dosya.close()
+    try:
+        with open(f'{dsyAdi}','w',encoding='utf8') as dosya:
+                dosya.close()
+
+    except FileNotFoundError:
+        print(Fore.RED + "Hata : Bir değer giriniz." + Style.RESET_ALL)
 
 def islev_dosya_sil(dsySil):
-    os.remove(dsySil)
+    liste = os.listdir()
+    try:
+        if dsySil in liste:
+                os.remove(dsySil)
+
+        else:
+            print(Fore.RED + f'Hata : {dsySil} adında dosya yok.' + Style.RESET_ALL)
+
+    except AttributeError:
+            print(Fore.RED + f'Hata : {dsySil} adında dosya yok.' + Style.RESET_ALL)
+
+    except PermissionError:
+        print(Fore.RED + f'Hata : Klasör silemezsin.' + Style.RESET_ALL)
 
 def islev_dosyayi_oku(dsyAdi):
     try:
         with open(f'{dsyAdi[4:]}','r',encoding='utf8') as dosya:
-            print('\"')
             for satir in dosya.readlines():
                 print(satir)
-            print('\"\n')
             
     except UnicodeDecodeError: # Eğer desteklenmeyen bir dosya biçimiyse
-        print('Hata <03> : Desteklenmeyen dosya biçimi.')
+        print(Fore.RED + 'Hata : Desteklenmeyen dosya biçimi.' + Style.RESET_ALL)
     except FileNotFoundError: # Eğer böyle bir dosya yoksa
-        print('Hata <04> : Böyle bir dosya yok.')
+        print(Fore.RED + 'Hata : Böyle bir dosya yok.' + Style.RESET_ALL)
     except PermissionError: # Eğer kullanıcı klasör okumaya çalışırsa
-        print('Hata <05> : Klasörü okuyamazsınız.')
-        
+        print(Fore.RED + 'Hata : Klasörü okuyamazsınız.' + Style.RESET_ALL)
+
 # Klasör işleri    
 def islev_olustur_klasor(klsAdi):
-    os.mkdir(klsAdi)
+    liste = os.listdir()
+    try:
+        if klsAdi in liste:
+            print(Fore.RED + "Hata : Aynı klasörden birden fazla olamaz." + Style.RESET_ALL)
+        
+        else:
+            os.mkdir(klsAdi)
+    except FileNotFoundError:
+        print(Fore.RED + "Hata : Bir değer giriniz." + Style.RESET_ALL)
 
 def islev_sil_klasor(klsSil):
-    os.rmdir(klsSil)
+    liste = os.listdir()
+    try:
+        if klsSil in liste:
+            os.rmdir(klsSil)
+
+        else:
+            print(Fore.RED + f"Hata : '{klsSil}' adlı klasör yok." + Style.RESET_ALL)
+
+    except AttributeError:
+        print(Fore.RED + f'Hata : {klsSil} adında dosya yok.' + Style.RESET_ALL)
+
+    except FileNotFoundError: # Eğer böyle bir dosya yoksa
+        print(Fore.RED + 'Hata : Böyle bir dosya yok.' + Style.RESET_ALL)
 
 # Yol işleri
-def islev_git(yol):
-    if yol in os.listdir():
-        os.chdir(yol)
-        
-    elif yol == '<-':
-        os.chdir('..')
-             
-    else:
-        print('Hata <02> : Böyle bir dizin yok')
 
 def islev_nerdeyim():
     print(os.getcwd())
@@ -76,17 +102,16 @@ def islev_kapat(program):
     if isletimSistemiTuru == 'nt':
         os.system(f'taskkill /f /im "{program}"')
     else:
-        os.system(f'killall {program}')    
+        os.system(f'killall {program}')
 
 def islev_bilgi():
-    print("""Batush(Batuhan'ın Bash'i) Beta 6.1\n
+    print("""Batush(Batuhan'ın Bash'i) Beta 7.0\n
 BatuHanHub tarafından Python diliyle yazılmıştır. Sadece eğlenmek ve Python bilgimi sınamak için yazılmıştır.
 Bash'in Türkçe hali ve Bash benzeri :D.
 
 Yardım istiyorsanız `yardım` komutunu kullanabilirsiniz :)
 
-Github: https://github.com/BatuHanHub
-Bloğum: https://tatliyazilimci.blogspot.com/ \n""")
+Github: https://github.com/BatuHanHub\n""")
     
 def islev_yardim():
     print("""  BATUSH KOMUTLARI
@@ -102,14 +127,17 @@ oku [dosya_adi.uzantisi] : dosyayı okur
 olşkls [klasor_adi]: klasör oluşturursunuz 
 silkls [klasor_adi]: klasör siler 
 
-git [yol_adi] : konumunuzu değiştirir (geri gitmek için `git --` yazmalısınız) 
+git [yol_adi] : konumunuzu değiştirir (geri gitmek için `git <-` yazmalısınız) 
 nerdeyim      : şu anki konumunuzu gösterir 
-liste         : konumunuzdaki dosyaları gösterir 
+ls            : konumunuzdaki dosyaları gösterir 
+kpy [dosya/klasör adi],[dosya/klasör adi] : konumunuzdaki dosyayı hedef dizine kopyalar
+taşı [dosya/klasör adi],[dosya/klasör adi] : konumunuzdaki dosyayı hedef dizine taşır
+isim [dosya/klasör adi],[yeni_ad] : konumunuzdaki dosya/klasör adını değiştirir
 
 # SİSTEM KOMUTLARI
 çık       : terminalden çıkarsınız
 temizle   : terminali temizler
-çalıştır [program_adi]: program çalıştırır
+başlat [program_adi]: program çalıştırır
 kapat [dosya_adi.uzantisi] : program kapatır
 bilgi     : Batush hakkında bilgi verir
 yardım    : terminal kodlarını ve işlevlerini gösterir
@@ -121,9 +149,11 @@ python    : Python'u açar
 pyçalış [dosya_adi.py] : Python dosyasını çalıştırır
 
 # EK KOMUTLAR
-Atatürk   : Ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız    
-tarih     : zaman ve tarihi gösterir""")
-    
+Atatürk   : ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız    
+tarih     : zaman ve tarihi gösterir
+bune [komut_adi] : komut hakkında bilgi verir
+""")
+
 def islev_degis(komut):
     if isletimSistemiTuru == 'nt':
         os.system(komut)
@@ -142,7 +172,7 @@ def islev_tarih():
 
 def islev_kalp():
     islev_temizle()
-    print('''
+    print(Fore.RED + '''
               ******       ******
             **********   **********
           ************* *************
@@ -158,12 +188,11 @@ def islev_kalp():
                       ***
                        *
 
-Benim için kıymetli hocalarım/ailem/abilerim/ablalarım(ablam yok :D)/arkadaşlarım, can dostlarım veya yoldaşlarım;
+Benim için kıymetli hocalarım, ailem, abilerim, ablalarım(ablam yok :D), arkadaşlarım, can dostlarım veya yoldaşlarım;
 
-Sensei Tankado / Ailem / Hocalarım / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 
-Komиcсар Рабочих Мира / kullanici3 / 5Dollar / 0axper0 / Hey Efe 
-Velberah / İMiracJK / Owmen / Kaan Başgan / Tufan / Zeynep / Selçuk  
-Damla / Dilek / Ceylin / Yağız / Murat / Rushxvpn9 / Rabia ve Zeynep\n''')
+Sensei Tankado / Güven Hocam / Osman Hocam / Tolga Hocam / Volkan Hocam / Ümit Hocam / Faruk Hocam / Sinan Hocam / Yeşim Hocam
+Ailem / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 / Komиcсар Рабочих Мира / kullanici3 / 5Dollar / 0axper0 / Hey Efe 
+Velberah / İMiracJK / Owwmen / Kaan Başgan / Tufan / Zeynep / Selçuk / Damla / Dilek / Ceylin / Yağız / Murat ve Bülent \n''' + Style.RESET_ALL)
     
 ### PYTHON ### 
 
@@ -180,8 +209,3 @@ def islev_calistir_python(py):
         os.system(f"python {py}")
     else:
         os.system(f'python3 {py}')
-        
-### HATALAR ###
-
-def hata():
-    print("Hata <01> : Girdiğiniz komutun doğru veya tam olduğundan emin olun!")
