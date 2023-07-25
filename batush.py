@@ -5,16 +5,16 @@ from islev import * # Komutların işlevlerinin bulunduğu alan
 from colorama import init, Fore, Style
 # }
 
-def set_console_title(title):
+def baslikAdiDegistir(baslik):
     if sys.platform.startswith('win32'):
-        ctypes.windll.kernel32.SetConsoleTitleW(title)
+        ctypes.windll.kernel32.SetConsoleTitleW(baslik)
     else:
-        sys.stdout.write(f"\x1b]2;{title}\x07")
+        sys.stdout.write(f"\x1b]2;{baslik}\x07")
         sys.stdout.flush()
 
 if __name__ == "__main__":
-    new_title = "Batush 7.0"
-    set_console_title(new_title)
+    baslik = f"Batush {surum}"
+    baslikAdiDegistir(baslik)
 
 def hata():
     print(Fore.RED + f"'{kullanici}' diye bir komut yok, lütfen komutunuzun doğru veya tam olduğundan emin olun." + Style.RESET_ALL)
@@ -56,7 +56,6 @@ while True:
 
         kullanici = str(input(f"{Fore.LIGHTGREEN_EX + ad}@{isletimSistemiRenk + isletimSistemiAdi.title()}-{isletimSistemiTuru.upper()+ sifirla}>{Fore.BLUE + yer}{sifirla}$"))
 
-
         # DOSYA İŞLEMLERİ
             
         if kullanici.split()[0] == olsdsy.inputKomut:
@@ -79,8 +78,10 @@ while True:
             dizin = kullanici[4:]
   
             if dizin == '<-':
-                os.chdir('..')
-
+                try:
+                    os.chdir('..')
+                except OSError:
+                    print(Fore.RED + "Eksik ya da hatalı komut girdiniz." + Style.RESET_ALL)
             elif dizin in os.listdir() or dizin not in os.listdir():
                 try:
                     os.chdir(dizin)
@@ -147,7 +148,6 @@ while True:
         elif kullanici.split()[0] == yardim.inputKomut:
             islev_yardim()
                 
-                
         #SİSTEM KOMUTLARI 
 
         elif kullanici.split()[0] == calistir.inputKomut:
@@ -161,16 +161,14 @@ while True:
                 
         elif kullanici.split()[0] == degis.inputKomut:
             islev_degis(kullanici[3:])     
-                
 
         # PYTHON
             
         elif kullanici.split()[0] == python.inputKomut:
-            islev_python()
-            
-        elif kullanici.split()[0] == calistirPython.inputKomut:
-            islev_calistir_python(kullanici[8:])
-            
+            if kullanici[-3:] == ".py":
+                islev_calistir_python(kullanici[7:])
+            else:
+                islev_python()
             
         #EK KOMUTLAR
             
@@ -190,8 +188,38 @@ while True:
             else:
                 print(Fore.RED + f"'{buneKomut}' diye bir komut yok, lütfen komutunuzun doğru veya tam olduğundan emin olun." + Style.RESET_ALL)
 
+        elif kullanici.split()[0] == superPaket.inputKomut:  
+            if kullanici[6:] == "güncelle":
+                islev_super_guncelle()
+
+            elif kullanici[6:] == "liste": # süper liste
+                islev_super_listele()
+
+            elif kullanici[6:9] == "kur":
+                if kullanici[-4:] == ".deb" or kullanici[-4:] == ".rpm":
+                    islev_super_program_kur(kullanici[10:])
+
+                else:
+                    islev_super_kur(kullanici[10:])
+
+            elif kullanici[6:12] == "kaldır":
+                islev_super_kaldir(kullanici[13:])
+
+            elif kullanici[6:9] == "ara":
+                islev_super_ara(kullanici[10:])
+
+            else:
+                print(Fore.RED + "Hata: Eksik veya olmayan komut girdiniz." + Style.RESET_ALL)
+
+        elif kullanici.split()[0] == kimim.inputKomut:
+            print(ad)
+
         else:
             hata()
             
     except IndexError: # Eğer kullanıcı boş komut girerse :
+        continue
+
+    except KeyboardInterrupt:
+        print("\n")
         continue
