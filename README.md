@@ -1,12 +1,38 @@
 # Değişim günlüğü :rocket:
-- Hatalar giderildi
-- Renkli terminal
-- Yeni komutlar
+- Ufak hatalar düzeltildi.
+- Yeni komutlar eklendi.
+- Artık Süper komutu ile paket kurabilir, kaldırabilir, yüklemek istediğiniz paketi
+arayabilir ve yüklü olan paketleri görebilirsiniz. Ayrıca sisteminizi güncelleyebilirsiniz.
+(MacOS'da desteklenmiyor.)
+- Atatürk ve python komutları tekrar yenilendi.
 
 # Batush Kılavuzu
 ![](https://miro.medium.com/max/1400/1*xjraSVbFOl1b5346bPGoIw.png)
 # Batush(Batuhan'ın Bash'i) nedir?
 Batush, Türkçe komutları olan Bash benzeri konsol/terminal/uçbirim.
+
+# SÜPER PAKET YÖNETİCİ VE SİSTEM GÜNCELLEME KOMUTU 
+Süper komutu, paketlerinizi yönetmeyi ve sistem güncelleştirmelerini kolay ve detaylı yapmanızı
+sağlar. MacOS'da komutu çalıştıramazsınız ancak Windows(Winget), Linux(Debian[apt ve .deb], 
+Arch(Pacman), Fedora(dnf ve .rpm)) ve BSD(pkg) paket yöneticilerini kullanmanıza yarar.
+
+### Winget nedir ve nasıl indirilir?
+Windows 10 ve üstü Windows sürümlerinde kurulu gelmektedir. 
+Winget açık kaynak kodlu Microsoft'a ait paket yöneticisidir.
+
+Kaynak kodları: https://github.com/microsoft/winget-cli
+
+## Süper komutları
+
+süper güncelle : sisteminizi ve reponuzu günceller</br>
+
+süper kur [paket_adi] : paket kurmanıza yarar</br>
+
+süper kaldır [paket_adi] : kurduğunuz paketi kaldırmanıza yarar</br>
+
+süper ara [paket_adi] : paket adını repodan arar</br>
+
+süper liste : yüklediğiniz paketleri ve uygulamaları listeler</br>
 
 # BATUSH KOMUTLARI
 
@@ -53,12 +79,12 @@ Bash ya da CMD komutlarınızı kullanmaya yarar.</br>
 # PYTHON
 python : Python'u açar</br>
 
-pyçalış [dosya_adi.py] : Python dosyasını çalıştırır</br>
-
 # EK KOMUTLAR
-Atatürk : ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız</br>
+Atatürk : denemelisiniz</br>
 
 tarih : zaman ve tarihi gösterir</br>
+
+benkimim : sizin kim olduğunuzu gösterir</br> 
 
 bune [komut_adi] : komut hakkında bilgi verir</br></br>
 
