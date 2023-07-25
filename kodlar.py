@@ -8,6 +8,22 @@ class komutlar:
         print(self.bilgi)
 
 ### Komutlar ###
+superPaket = komutlar("Batush Paket Komutu", "süper", """Paketlerinizi kurmaya/güncellemeye/aramanıza yarayan ve işletim sisteminizi güncellemeye yarayan komut.
+             
+Sağlayıcılar:
+             
+Windows - winget
+Linux - Debian(apt ve deb), Arch(AUR ve Pacman), Fedora(dnf ve rpm) 
+MacOS - desteği yok
+BSD - pkg
+                 
+Kullanımı: 
+
+süper güncelle            // Sisteminizi ve reponuzu günceller
+süper kur <paket_adi>     // Paket kurmanıza yarar 
+süper kaldır <paket_adi>  // Kurduğunuz paketi kaldırmanıza yarar
+süper ara <paket_adi>     // Paket adını repodan arar
+süper liste               // Yüklediğiniz paketleri ve uygulamaları listeler\n""")
 
 # Dosya ve Klasör
 olsdsy = komutlar('Olustur Dosya','olşdsy','Bulunduğunuz dizine bir dosya oluşturur.\nKullanımı: olşdsy <dosya_adi.tür>   Örneğin: olşdsy merhaba.txt\n')
@@ -37,13 +53,13 @@ degis = komutlar('Değiş','!>','Başka Konsole/Uçbirim/Terminal komutlarını 
 # Ek komutlar
 Ataturk = komutlar('Mustafa Kemal Atatürk','Atatürk','1881-193∞\n')
 tarih = komutlar('Tarih','tarih','Şu anki tarihi ekrana yazdırır.\n')
+kimim = komutlar("Ben kimim",'benkimim','Sizin kim olduğunuzu gösteren komut.')
 bune = komutlar('Bu ne?','bune','Komutlar hakkında bilgi verir.\n')
 kalp = komutlar('<3','<kalp3','<3')
 
 # Python
-python = komutlar('Python Başlatıcısı','python','Konsole/Uçbirim/Terminal Python açar.\n')
-calistirPython = komutlar('Python Çalıştırıcısı','pyçalış','Python dosyalarını çalıştırır.\nKullanımı: pyçalış <dosya_adi.py>   Örneğin: pyçalış main.py\n')
+python = komutlar('Python Başlatıcısı','python','Konsole/Uçbirim/Terminal Python açar veya .py dosyalarını çalıştırır.\n\nKullanımı:\nPython\'u kullanmak için: python\nPython dosyası çalıştırmak için: python <dosya_adi.py>')
 
 tumKomutlar = [olsdsy, sil, oku, olskls, silkls, git, nerde, listele,
 kopya, tasi, yeniAd, cik, temiz, calistir, kapat, bilgilendir, yardim, degis,
-Ataturk, tarih, bune, kalp, python, calistirPython]
+Ataturk, tarih, bune, kalp, python, superPaket, kimim]
