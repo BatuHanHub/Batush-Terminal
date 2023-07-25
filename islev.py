@@ -1,12 +1,124 @@
 # Kütüphaneler
 import datetime, time # Zamanla alakalı
-import os, sys, platform, shutil # Sistemle alakalı
+import os, sys, platform, shutil, distro # Sistemle alakalı
 from colorama import Fore, init, Style
+
+surum = "8.0"
 
 isletimSistemiTuru = os.name # kullanıcının kullandığı işletim sisteminin çekirdeği
 isletimSistemiAdi = platform.system() # kullanıcının kullandığı işletim sisteminin adı 
 
+if isletimSistemiAdi == "Linux":
+    dagitim = distro.like()
+
 ### DOSYA VE KLASÖR İŞLEMLERİ ###
+
+def islev_super_program_kur(program):
+    if distro.like() == "debian":
+        os.system(f"sudo dpkg -i {program}")
+
+    elif distro.like() == "fedora":
+        os.system(f"sudo dnf install {program}")
+                    
+    else:
+        print(Fore.RED + "Desteklenmeyen işletim sistemi veya Linux dağıtımı." + Style.RESET_ALL)
+    pass
+
+def islev_super_guncelle():
+    if isletimSistemiAdi == "Windows":
+        os.system("winget upgrade --all")
+
+    elif distro.like() == "debian":
+        os.system("LC_ALL=C sudo apt-get update && sudo apt-get upgrade")  
+        # LC_ALL=C yazmamdaki sebep bazı Linux dağıtımlarında update süresi ya çok uzun sürüyor ya da hiç ilerlemiyor
+
+    elif distro.like() == "arch":
+        os.system("sudo pacman -Syu && sudo pacman -Syyu")
+    
+    elif distro.like() == "fedora":
+        os.system("sudo dnf update && sudo dnf upgrade")
+
+    elif isletimSistemiAdi == "Bsd":
+        os.system("sudo pkg upgrade")
+
+    elif isletimSistemiAdi == "Darwin":
+        print("MacOS desteği yok.")
+
+def islev_super_kur(paketAdi):
+    if isletimSistemiAdi == "Windows":
+        os.system(f"winget install {paketAdi}")
+
+    elif distro.like() == "debian":
+        os.system(f"sudo apt-get install {paketAdi}")  
+        
+    elif distro.like() == "arch":
+        os.system(f"sudo pacman -S {paketAdi}")
+    
+    elif distro.like() == "fedora":
+        os.system(f"sudo dnf install {paketAdi}")
+
+    elif isletimSistemiAdi == "Bsd":
+        os.system(f"sudo pkg install {paketAdi}")
+
+    elif isletimSistemiAdi == "Darwin":
+        print("MacOS desteği yok.")
+
+def islev_super_kaldir(paketAdi):
+    if isletimSistemiAdi == "Windows":
+        os.system(f"winget uninstall {paketAdi}")
+
+    elif distro.like() == "debian":
+        os.system(f"sudo apt-get remove {paketAdi}")  
+        
+    elif distro.like() == "arch":
+        os.system(f"sudo pacman -R {paketAdi}")
+    
+    elif distro.like() == "fedora":
+        os.system(f"sudo dnf remove {paketAdi}")
+
+    elif isletimSistemiAdi == "Bsd":
+        os.system(f"sudo pkg remove {paketAdi}")
+
+    elif isletimSistemiAdi == "Darwin":
+        print("MacOS desteği yok.")
+
+def islev_super_ara(paketAdi):
+    if isletimSistemiAdi == "Windows":
+        os.system(f"winget show {paketAdi}")
+
+    elif distro.like() == "debian":
+        os.system(f"sudo apt search {paketAdi}")  
+        
+    elif distro.like() == "arch":
+        os.system(f"sudo pacman -Ss {paketAdi}")
+    
+    elif distro.like() == "fedora":
+        os.system(f"sudo dnf search {paketAdi}")
+
+    elif isletimSistemiAdi == "Bsd":
+        os.system(f"sudo pkg search {paketAdi}")
+
+    elif isletimSistemiAdi == "Darwin":
+        print("MacOS desteği yok.")
+
+def islev_super_listele():
+    if isletimSistemiAdi == "Windows":
+        os.system(f"winget list")
+
+    elif distro.like() == "debian":
+        os.system(f"sudo dpkg --list")  
+        
+    elif distro.like() == "arch":
+        os.system("sudo pacman -Q")
+    
+    elif distro.like() == "fedora":
+        os.system("sudo dnf list installed")
+
+    elif isletimSistemiAdi == "Bsd":
+        os.system("sudo pkg info")
+
+    elif isletimSistemiAdi == "Darwin":
+        print("MacOS desteği yok.")
 
 # Dosya işleri
 def islev_olustur_dosya(dsyAdi):
@@ -105,7 +217,7 @@ def islev_kapat(program):
         os.system(f'killall {program}')
 
 def islev_bilgi():
-    print("""Batush(Batuhan'ın Bash'i) Beta 7.0\n
+    print(f"""Batush(Batuhan'ın Bash'i) Beta {surum}\n
 BatuHanHub tarafından Python diliyle yazılmıştır. Sadece eğlenmek ve Python bilgimi sınamak için yazılmıştır.
 Bash'in Türkçe hali ve Bash benzeri :D.
 
@@ -118,6 +230,21 @@ def islev_yardim():
 
 UYARI!: KOMUTLARINIZI KÜÇÜK HARFLERLE YAZINIZ. (Atatürk hariç) 
 
+# PAKET VE SİSTEM KOMUTU
+          
+Sağlayıcılar:
+Windows - Winget(Windows 10 ve üstü Windows sürümlerinde çalışır.)
+Linux - Debian[apt ve .deb], Arch[Pacman], Fedora[dnf ve .rpm]
+BSD - pkg
+          
+## SÜPER KOMUTLARI
+          
+süper güncelle : sisteminizi ve repolarınızı günceller
+süper kur [paket_adi] : paket kurmanıza yarar
+süper kaldır [paket_adi] : kurulu paketi kaldırmanıza yarar
+süper ara [paket_adi] : girdiğiniz paket adını arar
+süper liste : sisteminizde kurulu olan paketleri listeler
+          
 # DOSYA VE KLASÖR İŞLEMLERİ
 
 olşdsy [dosya_adi.uzantisi] : dosya oluşturursunuz 
@@ -146,11 +273,11 @@ Bash ya da CMD komutlarınızı kullanmaya yarar.
 
 # PYTHON
 python    : Python'u açar
-pyçalış [dosya_adi.py] : Python dosyasını çalıştırır
 
 # EK KOMUTLAR
-Atatürk   : ekranı temizler ve 2 dakika saygı duruşu için yazı yazamazsınız    
+Atatürk   : denemelisin    
 tarih     : zaman ve tarihi gösterir
+benkimim : sizin kim olduğunuzu gösterir
 bune [komut_adi] : komut hakkında bilgi verir
 """)
 
@@ -163,8 +290,65 @@ def islev_degis(komut):
 ### EK KOMUTLAR ###
 
 def islev_ataturk():
-    print("2 Dakikalık Saygı Duruşu!")
-    time.sleep(120)
+    k = Fore.RED
+    b = Fore.WHITE
+    print(Fore.RED + f"""  /$$$$$$  /$$   /$$ /$$$$$$$$             /$$           /$$$$$$  /$$   /$$ /$$$$$$$ 
+ /$$__  $$| $$  | $$| $$_____/            |  $$         /$$__  $$| $$  | $$| $$__  $$
+| $$  \__/| $$  | $$| $$                   \  $$       | $$  \__/| $$  | $$| $$  \ $$
+| $$      | $$$$$$$$| $$$$$          /$$$$$$\  $$      | $$      | $$$$$$$$| $$$$$$$/
+| $$      | $$__  $$| $$__/         |______/ /$$/      | $$      | $$__  $$| $$____/ 
+| $$    $$| $$  | $$| $$                    /$$/       | $$    $$| $$  | $$| $$      
+|  $$$$$$/| $$  | $$| $$                   /$$/        |  $$$$$$/| $$  | $$| $$      
+ \______/ |__/  |__/|__/                  |__/          \______/ |__/  |__/|__/                                                                                           
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::{b}clol{k}:::::{b}ldoc{k}:::::::::{b}lddc{k}:::::::::::::
+:::::::::::{b}lkxl{k}:::{b}clxxl{k}:::::::{b}clodxlc{k}:::::::::::::
+::::::::::{b}ldoc{k}::{b}clooc{k}::::::{b}clooolc{k}::::::::::::::::
+:::::::::{b}ldlc{k}:{b}clool{k}::::{b}cloooolc{k}::::::::::{b}coxdlc{k}:::
+:::::::{b}codl{k}::{b}codlc{k}:::{b}coddooc{k}::::::::{b}ccloooodoc{k}::::
+::::::{b}cdxl{k}:{b}coxoc{k}::{b}clddolc{k}:::::::{b}clooooolc{k}:::::::::
+:::::{b}cdxlcoxdl{k}:{b}cldddlc:::::{b}cloooooolc{k}:::::::::::::
+::::{b}lxxloxxlcldxdoc{k}:::{b}clodddoolcc{k}:::::::::::::::::
+:::{b}lkxoxxoloxxdlccloddddoolc{k}::::::::::::{b}clolc{k}:::::
+::{b}codxkxddxdolldddddolc{k}:::::::{b}cccllooooloxxlc{k}:::::
+::::{b}codxxxdddxddocc{k}:{b}ccllooooooooooollccc{k}::::::::::
+::::::{b}codxxddoooddddddddooollcc{k}:::::::::::::::::::
+:::::::{b}cdxdddddoollcc{k}:::::::::::::::::::::::::::::
+:::::::{b}cdkxxddddddddoooooooooooodxoc{k}::::::::::::::
+::::::::{b}loooollllllllllllllllllloolc{k}::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::{b}
+
+NNXNNNXNXNNNNNNN0dl;.... ..,lkXNXNNNNNNNNNNNNNNNNN
+NNNNNNXXNNXNNKxc..           .;dKNNNNNNNXNNNNNNNNN
+NNNNNNNNNNXkc'                  'cOXXNNNXNNNNNNNNN
+NNNNNNNNNO;                       oNNNNNNNNNNNNNNN
+NNNNNNNNNo                       .kNXNNNNNNNNNNNNN
+NNNNNNNNNO.                      '0NNNNNXNNNNNNNNN
+NNNNNNNNNXo                      ;KNNNNNNNNNNNNNNN
+NNNNNNNNNN0;      .''',,;;;'.   .oNNNNNNNNNNNNNNNN
+NNNNNNNNNNNk.   .cccdKXkoooddc. '0NNNNNNNNNNNNNNNN
+NNNNNNNNNNNNd..:ccc,:0Xo;:clkXd.:KNXNNNNNNNNNNNNNN
+NNNNNNNNNNNN0clKK0KXXXNXNNNXXNKxxKNNNNNNNNNNNNNNNN
+NNNNNNNNNNNNXOllOXNKxdxO0KXNNNNKKNNNNNNNNNNNNNNNNN
+NNNNNNNNNNNNNXd..kXO:,;ckKXNXNK0KNNNNNNNNNNNNNNNNN
+NNNNNNNNNNNNXNXl.ckoc;:coxOX0k0XXNNXNNNNNNNNNNNNNN
+NNNNNNNNNNNXNXN0:.cKKdxXWWKdldKNNNNNNNNNNNNNNNNNNN
+NNNNNNNNNNNNNNNNO,.'cccoxxddK0OXNNNNNNNNNNNNNNNNNN
+XNNNNXNNNNNNNNNkxOx, .cdOKKXO;.c0NNNNNNXNNNNNNNNNN
+NNNNNNNNXXNNN0o..cO0xkXKxoc,.   .o0XNNNXNNNNNNNNNN
+NNNNNNNNX0xo:.  ';,cccl:;,,.      .;ox0XNNNNNNNNNN
+NNXNNKxc,.      cKd..ckXXKd.          .,cokKNNNNNN
+NNXNXk,         :0l.cXNKl'.                'dXNNNN
+NNNNNKc         ,:. .dk,                    :KNNNN
+NXNNNKc.        .,. .,.                     :KNNNN
+NNNNNXl....;cc' .;'',.                     .xNXNNN
+NNXXNX0kkk0XXk,  ,l'                  .;:;.:KNNNNN
+NNNNNNNNNXXNXOo. .''.';ccc:;'.    .:cxKXXK00XNNNNN
+NNNNNNNNNNNNXNN0kkOKKKKKXKK0d,. .:ONNNNNNNNNNNNXXN
+NNXNNNNNXNNXNNNNNXNNNNNXNNX0x::oxXNXXNNNNNNNXNNNNN """ + Style.RESET_ALL)
 
 def islev_tarih():
     zaman = datetime.datetime.now()
