@@ -1,9 +1,9 @@
 # Kütüphaneler
-import datetime, time # Zamanla alakalı
-import os, sys, platform, shutil, distro # Sistemle alakalı
+import datetime # Zamanla alakalı
+import os, sys, platform, distro # Sistemle alakalı
 from colorama import Fore, init, Style
 
-surum = "8.0"
+surum = "8.1"
 
 isletimSistemiTuru = os.name # kullanıcının kullandığı işletim sisteminin çekirdeği
 isletimSistemiAdi = platform.system() # kullanıcının kullandığı işletim sisteminin adı 
@@ -22,7 +22,6 @@ def islev_super_program_kur(program):
                     
     else:
         print(Fore.RED + "Desteklenmeyen işletim sistemi veya Linux dağıtımı." + Style.RESET_ALL)
-    pass
 
 def islev_super_guncelle():
     if isletimSistemiAdi == "Windows":
@@ -42,7 +41,7 @@ def islev_super_guncelle():
         os.system("sudo pkg upgrade")
 
     elif isletimSistemiAdi == "Darwin":
-        print("MacOS desteği yok.")
+        os.system("sudo brew update")
 
 def islev_super_kur(paketAdi):
     if isletimSistemiAdi == "Windows":
@@ -61,7 +60,7 @@ def islev_super_kur(paketAdi):
         os.system(f"sudo pkg install {paketAdi}")
 
     elif isletimSistemiAdi == "Darwin":
-        print("MacOS desteği yok.")
+        os.system(f"sudo brew install {paketAdi}")
 
 def islev_super_kaldir(paketAdi):
     if isletimSistemiAdi == "Windows":
@@ -80,7 +79,7 @@ def islev_super_kaldir(paketAdi):
         os.system(f"sudo pkg remove {paketAdi}")
 
     elif isletimSistemiAdi == "Darwin":
-        print("MacOS desteği yok.")
+        os.system(f"sudo brew uninstall {paketAdi}")
 
 def islev_super_ara(paketAdi):
     if isletimSistemiAdi == "Windows":
@@ -99,7 +98,7 @@ def islev_super_ara(paketAdi):
         os.system(f"sudo pkg search {paketAdi}")
 
     elif isletimSistemiAdi == "Darwin":
-        print("MacOS desteği yok.")
+        os.system(f"sudo brew search {paketAdi}")
 
 def islev_super_listele():
     if isletimSistemiAdi == "Windows":
@@ -118,7 +117,7 @@ def islev_super_listele():
         os.system("sudo pkg info")
 
     elif isletimSistemiAdi == "Darwin":
-        print("MacOS desteği yok.")
+        os.system("sudo brew list")
 
 # Dosya işleri
 def islev_olustur_dosya(dsyAdi):
@@ -216,6 +215,13 @@ def islev_kapat(program):
     else:
         os.system(f'killall {program}')
 
+def islev_ipadr():
+    if isletimSistemiTuru == "nt":
+        os.system("ipconfig /all")
+
+    else:
+        os.system("ifconfig")
+
 def islev_bilgi():
     print(f"""Batush(Batuhan'ın Bash'i) Beta {surum}\n
 BatuHanHub tarafından Python diliyle yazılmıştır. Sadece eğlenmek ve Python bilgimi sınamak için yazılmıştır.
@@ -290,38 +296,7 @@ def islev_degis(komut):
 ### EK KOMUTLAR ###
 
 def islev_ataturk():
-    k = Fore.RED
-    b = Fore.WHITE
-    print(Fore.RED + f"""  /$$$$$$  /$$   /$$ /$$$$$$$$             /$$           /$$$$$$  /$$   /$$ /$$$$$$$ 
- /$$__  $$| $$  | $$| $$_____/            |  $$         /$$__  $$| $$  | $$| $$__  $$
-| $$  \__/| $$  | $$| $$                   \  $$       | $$  \__/| $$  | $$| $$  \ $$
-| $$      | $$$$$$$$| $$$$$          /$$$$$$\  $$      | $$      | $$$$$$$$| $$$$$$$/
-| $$      | $$__  $$| $$__/         |______/ /$$/      | $$      | $$__  $$| $$____/ 
-| $$    $$| $$  | $$| $$                    /$$/       | $$    $$| $$  | $$| $$      
-|  $$$$$$/| $$  | $$| $$                   /$$/        |  $$$$$$/| $$  | $$| $$      
- \______/ |__/  |__/|__/                  |__/          \______/ |__/  |__/|__/                                                                                           
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::{b}clol{k}:::::{b}ldoc{k}:::::::::{b}lddc{k}:::::::::::::
-:::::::::::{b}lkxl{k}:::{b}clxxl{k}:::::::{b}clodxlc{k}:::::::::::::
-::::::::::{b}ldoc{k}::{b}clooc{k}::::::{b}clooolc{k}::::::::::::::::
-:::::::::{b}ldlc{k}:{b}clool{k}::::{b}cloooolc{k}::::::::::{b}coxdlc{k}:::
-:::::::{b}codl{k}::{b}codlc{k}:::{b}coddooc{k}::::::::{b}ccloooodoc{k}::::
-::::::{b}cdxl{k}:{b}coxoc{k}::{b}clddolc{k}:::::::{b}clooooolc{k}:::::::::
-:::::{b}cdxlcoxdl{k}:{b}cldddlc:::::{b}cloooooolc{k}:::::::::::::
-::::{b}lxxloxxlcldxdoc{k}:::{b}clodddoolcc{k}:::::::::::::::::
-:::{b}lkxoxxoloxxdlccloddddoolc{k}::::::::::::{b}clolc{k}:::::
-::{b}codxkxddxdolldddddolc{k}:::::::{b}cccllooooloxxlc{k}:::::
-::::{b}codxxxdddxddocc{k}:{b}ccllooooooooooollccc{k}::::::::::
-::::::{b}codxxddoooddddddddooollcc{k}:::::::::::::::::::
-:::::::{b}cdxdddddoollcc{k}:::::::::::::::::::::::::::::
-:::::::{b}cdkxxddddddddoooooooooooodxoc{k}::::::::::::::
-::::::::{b}loooollllllllllllllllllloolc{k}::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::{b}
-
-NNXNNNXNXNNNNNNN0dl;.... ..,lkXNXNNNNNNNNNNNNNNNNN
+    print(f"""NNXNNNXNXNNNNNNN0dl;.... ..,lkXNXNNNNNNNNNNNNNNNNN
 NNNNNNXXNNXNNKxc..           .;dKNNNNNNNXNNNNNNNNN
 NNNNNNNNNNXkc'                  'cOXXNNNXNNNNNNNNN
 NNNNNNNNNO;                       oNNNNNNNNNNNNNNN
@@ -348,7 +323,7 @@ NNNNNXl....;cc' .;'',.                     .xNXNNN
 NNXXNX0kkk0XXk,  ,l'                  .;:;.:KNNNNN
 NNNNNNNNNXXNXOo. .''.';ccc:;'.    .:cxKXXK00XNNNNN
 NNNNNNNNNNNNXNN0kkOKKKKKXKK0d,. .:ONNNNNNNNNNNNXXN
-NNXNNNNNXNNXNNNNNXNNNNNXNNX0x::oxXNXXNNNNNNNXNNNNN """ + Style.RESET_ALL)
+NNXNNNNNXNNXNNNNNXNNNNNXNNX0x::oxXNXXNNNNNNNXNNNNN """)
 
 def islev_tarih():
     zaman = datetime.datetime.now()
@@ -375,8 +350,8 @@ def islev_kalp():
 Benim için kıymetli hocalarım, ailem, abilerim, ablalarım(ablam yok :D), arkadaşlarım, can dostlarım veya yoldaşlarım;
 
 Sensei Tankado / Güven Hocam / Osman Hocam / Tolga Hocam / Volkan Hocam / Ümit Hocam / Faruk Hocam / Sinan Hocam / Yeşim Hocam
-Ailem / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 / Komиcсар Рабочих Мира / kullanici3 / 5Dollar / 0axper0 / Hey Efe 
-Velberah / İMiracJK / Owwmen / Kaan Başgan / Tufan / Zeynep / Selçuk / Damla / Dilek / Ceylin / Yağız / Murat ve Bülent \n''' + Style.RESET_ALL)
+Annem / Cemoş / EnderKral Abim / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 / Komиcсар Рабочих Мира / Unchained / 5Dollar / 0axper0 / Hey Efe 
+/ Qaxens / Velberah / İMiracJK / Owwmen / Kaan Başgan / Tufan / Zeynep / Selçuk / Damla / Dilek / Ceylin / Yağız / Murat ve Bülent \n''' + Style.RESET_ALL)
     
 ### PYTHON ### 
 
