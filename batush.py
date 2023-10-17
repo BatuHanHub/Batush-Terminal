@@ -1,5 +1,6 @@
 # Kütüphaneler {
 import ctypes # Pencere başlığı için
+import shutil
 from kodlar import * # Komutların bulunduğu alan
 from islev import * # Komutların işlevlerinin bulunduğu alan
 from colorama import init, Fore, Style
