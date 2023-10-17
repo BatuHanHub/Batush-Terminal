@@ -14,7 +14,7 @@ Sağlayıcılar:
              
 Windows - winget
 Linux - Debian(apt ve deb), Arch(AUR ve Pacman), Fedora(dnf ve rpm) 
-MacOS - desteği yok
+MacOS - homebrew
 BSD - pkg
                  
 Kullanımı: 
@@ -53,13 +53,15 @@ degis = komutlar('Değiş','!>','Başka Konsole/Uçbirim/Terminal komutlarını 
 # Ek komutlar
 Ataturk = komutlar('Mustafa Kemal Atatürk','Atatürk','1881-193∞\n')
 tarih = komutlar('Tarih','tarih','Şu anki tarihi ekrana yazdırır.\n')
-kimim = komutlar("Ben kimim",'benkimim','Sizin kim olduğunuzu gösteren komut.')
+kimim = komutlar("Ben kimim",'benkimim','Sizin hangi kullanıcı olduğunuzu gösteren komut.')
+ipypdr = komutlar("İP yapılandırması", "ipadr", "İp ve MAC adresinizi ekrana yazdırır.\n")
 bune = komutlar('Bu ne?','bune','Komutlar hakkında bilgi verir.\n')
-kalp = komutlar('<3','<kalp3','<3')
+kalp = komutlar('<3','<kalp3','''SADECE değer verdiğim Hocalarım, Abilerim, Ablalarım(Ablam yok :D ama olursa eklerim),
+Arkadaşlarım, Yoldaşlarım, Can dostlarım ve Kardeşim''')
 
 # Python
 python = komutlar('Python Başlatıcısı','python','Konsole/Uçbirim/Terminal Python açar veya .py dosyalarını çalıştırır.\n\nKullanımı:\nPython\'u kullanmak için: python\nPython dosyası çalıştırmak için: python <dosya_adi.py>')
 
 tumKomutlar = [olsdsy, sil, oku, olskls, silkls, git, nerde, listele,
 kopya, tasi, yeniAd, cik, temiz, calistir, kapat, bilgilendir, yardim, degis,
-Ataturk, tarih, bune, kalp, python, superPaket, kimim]
+Ataturk, tarih, bune, kalp, python, superPaket, kimim, ipypdr]
