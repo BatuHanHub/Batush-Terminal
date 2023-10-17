@@ -1,10 +1,10 @@
 # Değişim günlüğü :rocket:
-- Ufak hatalar düzeltildi.
-- Yeni komutlar eklendi.
-- Artık Süper komutu ile paket kurabilir, kaldırabilir, yüklemek istediğiniz paketi
-arayabilir ve yüklü olan paketleri görebilirsiniz. Ayrıca sisteminizi güncelleyebilirsiniz.
-(MacOS'da desteklenmiyor.)
-- Atatürk ve python komutları tekrar yenilendi.
+- MacOS'a süper desteği geldi
+- Ufak düzeltmeler
+- İpconfig/İfconfig komutları yerine => ipadr komutu eklendi (İP ADRes)
+
+# Kullanmadan önce!
+Python 3.x, Pip ve Colorama kütüphanenizin yüklü olması gerekmektedir.
 
 # Batush Kılavuzu
 ![](https://miro.medium.com/max/1400/1*xjraSVbFOl1b5346bPGoIw.png)
@@ -13,8 +13,8 @@ Batush, Türkçe komutları olan Bash benzeri konsol/terminal/uçbirim.
 
 # SÜPER PAKET YÖNETİCİ VE SİSTEM GÜNCELLEME KOMUTU 
 Süper komutu, paketlerinizi yönetmeyi ve sistem güncelleştirmelerini kolay ve detaylı yapmanızı
-sağlar. MacOS'da komutu çalıştıramazsınız ancak Windows(Winget), Linux(Debian[apt ve .deb], 
-Arch(Pacman), Fedora(dnf ve .rpm)) ve BSD(pkg) paket yöneticilerini kullanmanıza yarar.
+sağlar. Windows(Winget), Linux(Debian[apt ve .deb], 
+Arch(Pacman), Fedora(dnf ve .rpm)), MacOS(Homebrew) ve BSD(pkg) paket yöneticilerini kullanmanıza yarar.
 
 ### Winget nedir ve nasıl indirilir?
 Windows 10 ve üstü Windows sürümlerinde kurulu gelmektedir. 
@@ -75,6 +75,8 @@ yardım : terminal kodlarını ve işlevlerini gösterir</br>
 
 !> [komut] : Batush'da olmayan veya komutları kullanmayı veya</br>
 Bash ya da CMD komutlarınızı kullanmaya yarar.</br>
+
+ipadr : İp ve MAC adresinizi ekrana yazar </br>
 
 # PYTHON
 python : Python'u açar</br>
