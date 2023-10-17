@@ -349,9 +349,9 @@ def islev_kalp():
 
 Benim için kıymetli hocalarım, ailem, abilerim, ablalarım(ablam yok :D), arkadaşlarım, can dostlarım veya yoldaşlarım;
 
-Sensei Tankado / Güven Hocam / Osman Hocam / Tolga Hocam / Volkan Hocam / Ümit Hocam / Faruk Hocam / Sinan Hocam / Yeşim Hocam
+Sensei Tankado / Güven Hocam / Osman Hocam / Tolga Hocam / Volkan Hocam / Ümit Hocam / Faruk Hocam / Sinan Hocam / Yeşim Hocam / Hatice Hocam
 Annem / Cemoş / EnderKral Abim / Emirhan Abim / ŞimşekBeyy / K1Y0H1M3 / Komиcсар Рабочих Мира / Unchained / 5Dollar / 0axper0 / Hey Efe 
-/ Qaxens / Velberah / İMiracJK / Owwmen / Kaan Başgan / Tufan / Zeynep / Selçuk / Damla / Dilek / Ceylin / Yağız / Murat ve Bülent \n''' + Style.RESET_ALL)
+/ Qaxens / Kortitanium / İMiracJK / Owwmen / Kaan Başgan / West / Zeynep, Damla, Ceylin / Selçuk / Dilek / Yağız / Murat ve Bülent / Fatma ve Selinay \n''' + Style.RESET_ALL)
     
 ### PYTHON ### 
 
