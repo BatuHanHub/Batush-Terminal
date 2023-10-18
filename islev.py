@@ -276,6 +276,7 @@ bilgi     : Batush hakkında bilgi verir
 yardım    : terminal kodlarını ve işlevlerini gösterir
 !> [komut]: Batush'da olmayan veya komutları kullanmayı veya
 Bash ya da CMD komutlarınızı kullanmaya yarar.
+ipadr     : IP ve MAC adresinizi ekrana yazdırır.
 
 # PYTHON
 python    : Python'u açar
