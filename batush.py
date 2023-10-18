@@ -189,6 +189,9 @@ while True:
             else:
                 print(Fore.RED + f"'{buneKomut}' diye bir komut yok, lütfen komutunuzun doğru veya tam olduğundan emin olun." + Style.RESET_ALL)
 
+        elif kullanici.split()[0] == ipypdr.inputKomut:
+            islev_ipadr()
+
         elif kullanici.split()[0] == superPaket.inputKomut:  
             if kullanici[6:] == "güncelle":
                 islev_super_guncelle()
